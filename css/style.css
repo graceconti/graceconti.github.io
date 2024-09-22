@@ -705,6 +705,33 @@ body {
 }
 
 
+@media (min-height: 1024px) and (max-aspect-ratio: 1/1) {
+  .custom-home-text {
+    font-size: 3rem;
+  }
+
+  #about-image {
+    display: none;
+  }
+
+  .about-container {
+    flex-direction: column;
+  }
+
+  #about-me {
+    font-size: 48px;
+  }
+
+  .about-desc {
+    font-size: 22px;
+  }
+
+  .svg-icon {
+    width: 3em;
+    height: 3em;
+  }
+}
+
 
 
 /* ----------------- Contact Section ----------------- */
