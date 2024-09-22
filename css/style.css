@@ -1,0 +1,725 @@
+@import url(keyframes.css);
+
+:root[data-theme='dark'] {
+  --default-color: #FFFFFF;
+  --body-background-color: #000000;
+  --active-navbar-button: var(--default-color);
+  --header-container-color: var(--body-background-color);
+  --navbar-text-color: #6A6A6A;
+  --navbar-text-color-active: var(--default-color);
+  --switch-slider-background-color: var(--body-background-color);
+  --switch-slider-border-color: rgba(255, 255, 255, 0.6);
+  --switch-slider-ball-color: #819bf7;
+  --switch-slider-moon-color: var(--default-color);
+  --switch-slider-sun-color: #ffbd52;
+  --navmenu-hover-color: var(--default-color);
+  --home-background: url('../resources/images/hero-section/home_wb_reduced.jpg');
+  --prev-next-button-color: rgba(255, 255, 255, 0.8);
+  --prev-next-button-border-color: rgba(194, 194, 194, 0.879);
+  --prev-next-button-background-color: rgba(0, 0, 0, 0.15);
+  --prev-next-button-shadow-color: 0 0 1rem rgba(255, 255, 255, 0.553);
+  --prev-next-button-hover-color: rgba(255, 255, 255, 0.144);
+  --video-thumbnail-background-color: #5252528b;
+
+
+
+
+}
+
+:root[data-theme='light'] {
+  --default-color: #000000;
+  --body-background-color: #FFFFFF;
+  --active-navbar-button: #var(--default-color);
+  --header-container-color: var(--body-background-color);
+  --switch-slider-background-color: #e4e4e4;
+  --switch-slider-ball-color: #ffbd52;
+  --switch-slider-moon-color: #525252;
+  --switch-slider-sun-color: #FFFFFF;
+  --navmenu-hover-color: #000000b6;
+  --home-background: url('../resources/images/hero-section/home_color_reduced.jpg');
+  --prev-next-button-color: #727272;
+  --prev-next-button-background-color: rgba(255, 255, 255, 0.736);
+  --prev-next-button-border-color: #898989;
+  --prev-next-button-hover-color: var(--switch-slider-background-color);
+  --prev-next-button-shadow-color: 0 0 1rem rgba(0, 0, 0, 0.553);
+  --video-thumbnail-background-color: #5252528b;
+
+
+
+
+
+}
+
+:root {
+  --header-height: 3rem;
+  --default-gray-color: #525252;
+  --default-transition: color 1s ease-in-out, background-color 1s ease-in-out, background-image 1s ease-in-out, border-color 1s ease-in-out, fill 1s ease-in-out, transform 1s ease-in-out;
+  --default-buttons-height: 3rem;
+}
+
+.svg-icon {
+  width: 3em;
+  height: 3em;
+  fill: currentColor;
+}
+
+.raleway-400 {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body {
+  height: 300vh;
+  /* 400vh with contact ection */
+  background-color: var(--body-background-color);
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  transition: var(--default-transition);
+  overflow-y: scroll;
+}
+
+.footer-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #ffcc00;
+  color: #000000;
+  text-align: center;
+  padding: 2px 0;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.header-container {
+  z-index: 1000;
+  background-color: var(--header-container-color);
+  overflow: hidden;
+  position: fixed;
+  width: 100vw;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  transition: var(--default-transition);
+  border-bottom: 1px solid rgba(96, 96, 96, 0.500);
+
+}
+
+/* ----------------- Theme Switcher ----------------- */
+
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 15vw;
+  /* 60px */
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-switch {
+  background-color: var(--switch-slider-background-color);
+  width: 71px;
+  height: 37px;
+  border: 1px solid var(--switch-slider-border-color);
+  border-radius: 50px;
+  position: relative;
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {
+  color: var(--switch-slider-moon-color);
+  z-index: 1000;
+}
+
+.fa-sun {
+  color: var(--switch-slider-sun-color);
+  z-index: 1000;
+}
+
+.checkbox-switch .ball {
+  background-color: var(--switch-slider-ball-color);
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 4px;
+  top: 3px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox-switch:checked+.checkbox-switch .ball {
+  transform: translateX(32px);
+}
+
+
+
+
+
+/* ----------------- Nav Menu ----------------- */
+
+
+.navmenu {
+  display: flex;
+  justify-content: center;
+  width: 70vw;
+  align-items: center;
+  font-size: 1em;
+}
+
+.navmenu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navmenu li {
+  float: left;
+}
+
+.navmenu li a {
+  display: block;
+  text-align: center;
+  color: #6a6a6a;
+  padding: 16px 20px 16px 20px;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.navmenu li a:hover {
+  transition: 0.5s;
+  color: var(--navmenu-hover-color);
+}
+
+.navmenu li .active {
+  color: var(--navmenu-hover-color);
+  font-weight: bold;
+}
+
+.header-social-links {
+  width: 15vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+}
+
+.twitter,
+.facebook,
+.instagram,
+.linkedin {
+  color: var(--navmenu-hover-color);
+  width: 14px;
+}
+
+/* -- Viewport customization -- */
+@media (max-aspect-ratio: 1/1) {
+  #navmenu {
+    display: none;
+  }
+}
+
+/* ----------------- Home Section ----------------- */
+
+.home {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: var(--home-background);
+  transition: var(--default-transition);
+  background-size: cover;
+  /* background-position-y: center; */
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  opacity: 0;
+}
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--default-color);
+}
+
+.custom-home-text {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 3rem;
+  font-optical-sizing: auto;
+  color: #FFFFFF;
+}
+
+#name {
+  font-weight: 700;
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+.home-body-animation {
+  animation: fadeInCenter 3s ease-in-out forwards;
+}
+
+.home-text-animate-up {
+  animation: fadeInUp 3s ease-in-out forwards;
+}
+
+
+/* -- Viewport customization -- */
+@media (max-aspect-ratio: 1/1) {
+  .home {
+    background-position: left;
+  }
+
+  .home-container {
+    padding-left: 0;
+  }
+
+  .custom-home-text {
+    font-size: 24px;
+  }
+}
+
+
+
+
+
+/* ----------------- Gallery Section ----------------- */
+
+
+.gallery {
+  height: 100vh;
+  margin: 0 auto;
+  /* border-top: 1px solid #ffbd52; */
+
+}
+
+
+
+.gallery-introduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--default-color);
+  font-size: 48px;
+  height: 20vh;
+}
+
+
+
+.text-introduction {
+  position: relative;
+  color: var(--default-color);
+  display: flex;
+  flex-direction: column;
+  /* opacity: 0; serve per l'animazione */
+}
+
+.text-introduction-animate {
+  animation: fadeInLeft 1s ease-in-out forwards;
+}
+
+/* ----------------- Gallery Slideshow ----------------- */
+#gallery-wrapper {
+  /*overflow: hidden; */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 65vh;
+  overflow-x: auto;
+  max-width: 1920px;
+
+  transition: transform 1s ease-in-out;
+  /* Animazione dello scorrimento */
+
+  padding-left: 2%;
+  padding-right: 2%;
+
+  white-space: nowrap;
+  /* Impedisce il wrapping delle colonne */
+
+}
+
+#gallery-container {
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+  grid-gap: 1rem;
+
+
+
+  overflow-x: auto;
+  /* Abilita lo scorrimento orizzontale */
+  scroll-snap-type: x mandatory;
+  /* Scorrimento orizzontale */
+  transition: transform 0.5s ease;
+  /* Transizione per lo scorrimento */
+
+  justify-items: center;
+  align-items: center;
+
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* Internet Explorer */
+}
+
+
+
+
+
+.gallery-slideshow-animate {
+  animation: fadeInCenter 1s ease-in-out;
+}
+
+.gallery-item {
+
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  /* Previene lo sforamento del contenuto */
+  width: 15vw;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  text-align: center;
+
+  box-sizing: border-box;
+  /* border: 1px solid #a2a2a2; */
+  border-radius: 10px;
+
+
+  transition: transform 0.5s ease;
+  /* Transizione di 0,5 secondi per lo scorrimento */
+
+}
+
+
+
+.video-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid #a2a2a2; */
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+
+.video-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  font-weight: 500;
+  font-size: 24px;
+  padding: 1rem;
+  background: var(--video-thumbnail-background-color);
+  color: white;
+  transition: opacity 0.5s ease;
+  height: 45%;
+  /* Altezza della finestra di descrizione */
+  box-sizing: border-box;
+  /* Include il padding nella larghezza */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  opacity: 0;
+}
+
+.text-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: wrap;
+  word-wrap: break-word;
+  text-align: justify center;
+}
+
+.gallery-item:hover .video-description {
+  opacity: 1;
+  /* Mostra la finestra di descrizione al passaggio del mouse */
+}
+
+
+
+#pagination-controls {
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-left: 40vw;
+  margin-right: 40vw;
+  font-weight: 700;
+}
+
+
+/* Pulsanti di navigazione */
+.prev,
+.next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  width: 3rem;
+  height: var(--default-buttons-height);
+  z-index: 10;
+
+  color: var(--prev-next-button-color);
+  background-color: var(--prev-next-button-background-color);
+  /* box-shadow: var(--prev-next-button-shadow-color); */
+  border: 1px solid var(--prev-next-button-border-color);
+  border-radius: 50%;
+
+  margin-left: 2rem;
+  margin-right: 2rem;
+
+  cursor: pointer;
+
+  transition: background-color 0.3s, color 0.3s;
+  /* Transizione graduale */
+}
+
+
+
+.prev:hover,
+.next:hover {
+  background-color: var(--prev-next-button-hover-color);
+}
+
+#page-indicator {
+  display: flex;
+  justify-content: center;
+  min-width: 64px;
+}
+
+/* -- Viewport customization -- */
+@media (min-aspect-ratio: 1/1) {
+  #gallery-container {
+    width: 80vw;
+  }
+}
+
+
+
+/* ----------------- About Section ----------------- */
+
+
+.about {
+  min-height: 100vh;
+  height: 100vh;
+  /* border-top: 1px solid #ffbd52; */
+
+}
+
+.about-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  ;
+
+  padding-right: 2%;
+  padding-left: 2%;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+
+  color: var(--default-color);
+
+  font-size: 48px;
+  font-weight: 700;
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  text-align: center;
+}
+
+#about-image {
+
+  width: 100%;
+
+
+  border-radius: 20px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 2rem rgba(255, 255, 255, 0.553);
+  background-image: url('../resources/images/about/about-3-wb.png');
+  background-size: cover;
+  background-position: top;
+
+  animation: fadeImageAboutMeLeft 2s ease-in-out forwards;
+}
+
+#about-me {
+  font-size: 72px;
+  font-weight: 500;
+  font-style: normal;
+  text-align: left;
+  padding-left: 3rem;
+  /* text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.5); */
+  color: var(--default-color);
+
+  animation: fadeInRight 2s ease-in-out forwards;
+}
+
+
+.about-desc {
+  font-size: 24px;
+  font-weight: 300;
+  font-style: normal;
+  padding-top: 2rem;
+  padding-left: 3rem;
+  padding-right: 2rem;
+  text-align: justify;
+  animation: fadeInCenter 3s ease-in-out forwards;
+}
+
+.about-list-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+}
+
+.wrapper-software {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.about-list {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
+
+  font-size: 24px;
+  font-weight: 500;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-align: left;
+  list-style-type: none;
+
+  animation: fadeInCenter 3s ease-in-out forwards;
+
+}
+
+
+/* -- Viewport customization -- */
+
+@media (max-width: 1279px) and (min-aspect-ratio: 1/1) {
+  .about-container {
+    flex-direction: column;
+  }
+
+  #about-image {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) and (min-aspect-ratio: 1/1) {
+  .about-container {
+    flex-direction: row;
+  }
+}
+
+@media (max-aspect-ratio: 1/1) {
+  #about-image {
+    display: none;
+  }
+
+  .about-container {
+    flex-direction: column;
+  }
+
+  #about-me {
+    font-size: 32px;
+  }
+
+  .about-desc {
+    font-size: 16px;
+  }
+
+  .svg-icon {
+    width: 2em;
+    height: 2em;
+  }
+}
+
+
+
+
+/* ----------------- Contact Section ----------------- */
+
+.contact {
+  /* da aggiungere alla navbar quando implementata
+                      <li><a href="#contact">CONTACT</a></li>
+                      */
+  display: none;
+  /* da rimuovere quando implementata */
+  height: 0;
+  /* 100vh quando implementata */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin: 0 auto;
+  /*border-top: 1px solid #ffbd52; */
+
+}
