@@ -78,5 +78,13 @@
     "description": "Ice Cream Video By Yole",
     "image": "/gallery/image_1767900917428.png",
     "videoUrl": "https://youtu.be/9Tqf4d1-aIE"
+  },
+  {
+    "id": 11,
+    "type": "photo",
+    "title": "Invidia",
+    "description": "Sette peccati capitali - Invidia",
+    "image": "/gallery/image_1767901083471.jpg",
+    "videoUrl": ""
   }
 ]
