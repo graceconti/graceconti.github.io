@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "type": "video",
+    "title": "Soul Mates",
+    "description": "Behind The Scenes of the film 'Soul Mates'",
+    "image": "/gallery/soul_mates.webp",
+    "videoUrl": "https://www.youtube.com/watch?v=mkM2wKTL3cY"
+  },
+  {
+    "id": 2,
+    "type": "video",
+    "title": "Mercoledì",
+    "description": "Wednesday Dance (reinterpretation)",
+    "image": "/gallery/mercoledi.webp",
+    "videoUrl": "https://www.youtube.com/watch?v=wSN7Uv9aF8c"
+  },
+  {
+    "id": 3,
+    "type": "video",
+    "title": "Transference",
+    "description": "Transference Therapy Scene",
+    "image": "/gallery/transference.webp",
+    "videoUrl": "https://youtu.be/-CZlizc9GGk"
+  },
+  {
+    "id": 4,
+    "type": "video",
+    "title": "I Like to make stuff",
+    "description": "Short edited video of \"I like to make stuff\" with the great Bob Clagett!",
+    "image": "/gallery/make_stuff_full.webp",
+    "videoUrl": "https://www.youtube.com/watch?v=yqT_kM-Z_hc"
+  },
+  {
+    "id": 5,
+    "type": "video",
+    "title": "Own Doc",
+    "description": "My Own Documentary",
+    "image": "/gallery/own_doc.webp",
+    "videoUrl": "https://www.youtube.com/watch?v=r8XsFrPJfeM"
+  },
+  {
+    "id": 6,
+    "type": "video",
+    "title": "I Like to make stuff (EDIT)",
+    "description": "Homemade trailer for the video 'I Like to make stuff'",
+    "image": "/gallery/make_stuff_edit.webp",
+    "videoUrl": "https://www.youtube.com/watch?v=JkkwRTH8NdI"
+  },
+  {
+    "id": 7,
+    "type": "video",
+    "title": "Offender",
+    "description": "My first montage for UWL",
+    "image": "/gallery/offender.webp",
+    "videoUrl": "https://www.youtube.com/watch?v=YghKDgUOwr8"
+  },
+  {
+    "id": 8,
+    "type": "video",
+    "title": "Puppets",
+    "description": "Personal edit of the interview to Stan Middlelton Puppeter",
+    "image": "/gallery/puppets.webp",
+    "videoUrl": "https://www.youtube.com/watch?v=w3vc2csJHo4"
+  },
+  {
+    "id": 9,
+    "type": "video",
+    "title": "AE Project",
+    "description": "After Effect Beginners Course Final Project",
+    "image": "/gallery/ae_project.webp",
+    "videoUrl": "https://www.youtube.com/watch?v=atvor_JN6Bk"
+  }
+]
