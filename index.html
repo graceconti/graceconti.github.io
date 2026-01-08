@@ -5,6 +5,16 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grace Conti - Website</title>
+    <script>
+      // Restore redirected URL from 404.html for GitHub Pages SPA
+      (function(){
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
     <script type="module" crossorigin src="/assets/index-DSnsW_mw.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-BFCkypSy.css">
   </head>
