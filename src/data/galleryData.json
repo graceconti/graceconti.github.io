@@ -19,7 +19,7 @@
     "id": 3,
     "type": "video",
     "title": "Transference",
-    "description": "Transference Therapy Scene",
+    "description": "Transference Therapy Scene directed by Grace Conti",
     "image": "/gallery/transference.webp",
     "videoUrl": "https://youtu.be/-CZlizc9GGk"
   },
@@ -70,21 +70,5 @@
     "description": "After Effect Beginners Course Final Project",
     "image": "/gallery/ae_project.webp",
     "videoUrl": "https://www.youtube.com/watch?v=atvor_JN6Bk"
-  },
-  {
-    "id": 10,
-    "type": "video",
-    "title": "Ice Cream By Yole",
-    "description": "Ice Cream Video By Yole",
-    "image": "/gallery/image_1767900917428.png",
-    "videoUrl": "https://youtu.be/9Tqf4d1-aIE"
-  },
-  {
-    "id": 11,
-    "type": "photo",
-    "title": "Invidia",
-    "description": "Sette peccati capitali - Invidia",
-    "image": "/gallery/image_1767901083471.jpg",
-    "videoUrl": ""
   }
 ]
