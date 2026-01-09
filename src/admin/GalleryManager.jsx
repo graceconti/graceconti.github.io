@@ -6,6 +6,7 @@ import './GalleryManager.css';
 
 const GalleryManager = () => {
   const [items, setItems] = useState([]);
+  const [filter, setFilter] = useState('video');
   const [editingItem, setEditingItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [githubToken, setGithubToken] = useState('');
@@ -181,6 +182,8 @@ const GalleryManager = () => {
     setIsModalOpen(true);
   };
 
+  const filteredItems = items.filter(item => item.type === filter);
+
   const handleDragStart = (e, index) => {
     setDraggedIndex(index);
     e.dataTransfer.effectAllowed = 'move';
@@ -190,12 +193,21 @@ const GalleryManager = () => {
     e.preventDefault();
     if (draggedIndex === null || draggedIndex === index) return;
 
-    const newItems = [...items];
-    const draggedItem = newItems[draggedIndex];
-    newItems.splice(draggedIndex, 1);
-    newItems.splice(index, 0, draggedItem);
+    const filteredCopy = [...filteredItems];
+    const draggedItem = filteredCopy[draggedIndex];
+    filteredCopy.splice(draggedIndex, 1);
+    filteredCopy.splice(index, 0, draggedItem);
 
-    setItems(newItems);
+    const allItems = items.map(item => {
+      const filteredIndex = filteredCopy.findIndex(fi => fi.id === item.id);
+      if (filteredIndex !== -1) return filteredCopy[filteredIndex];
+      return item;
+    });
+
+    const remainingFiltered = allItems.filter(item => item.type === filter);
+    const otherItems = allItems.filter(item => item.type !== filter);
+    
+    setItems([...remainingFiltered, ...otherItems]);
     setDraggedIndex(index);
   };
 
@@ -299,10 +311,31 @@ const GalleryManager = () => {
               </button>
             </div>
 
-            <p className="drag-hint">Trascina le card per cambiare l'ordine di visualizzazione</p>
+            <div className="filter-controls">
+              <button 
+                className={`filter-btn ${filter === 'video' ? 'active' : ''}`}
+                onClick={() => setFilter('video')}
+              >
+                Video ({items.filter(i => i.type === 'video').length})
+              </button>
+              <button 
+                className={`filter-btn ${filter === 'photo' ? 'active' : ''}`}
+                onClick={() => setFilter('photo')}
+              >
+                Photo ({items.filter(i => i.type === 'photo').length})
+              </button>
+              <button 
+                className={`filter-btn ${filter === 'ai' ? 'active' : ''}`}
+                onClick={() => setFilter('ai')}
+              >
+                AI ({items.filter(i => i.type === 'ai').length})
+              </button>
+            </div>
+
+            <p className="drag-hint">Trascina le card per cambiare l'ordine di visualizzazione (all'interno del filtro selezionato)</p>
 
             <div className="items-grid">
-              {items.map((item, index) => (
+              {filteredItems.map((item, index) => (
                 <div
                   key={item.id}
                   className={`item-card ${draggedIndex === index ? 'dragging' : ''}`}

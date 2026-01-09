@@ -119,6 +119,38 @@
   margin: 0;
 }
 
+.filter-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.625rem 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.filter-btn:hover {
+  border-color: #d4af37;
+  color: #fff;
+}
+
+.filter-btn.active {
+  background: #d4af37;
+  color: #000;
+  border-color: #d4af37;
+}
+
 .drag-hint {
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.9rem;
@@ -144,7 +176,7 @@
 
 .items-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
@@ -406,6 +438,12 @@
   color: white;
   border-color: rgba(255, 255, 255, 0.5);
   background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 968px) {
+  .items-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
