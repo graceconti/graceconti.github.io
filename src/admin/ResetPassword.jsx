@@ -14,8 +14,8 @@ const ResetPassword = () => {
 
   // Domanda di sicurezza - Grace può personalizzarla
   const SECURITY_QUESTION = "Qual è il nome della tua prima opera?";
-  // Risposta cifrata (hash di "transference" in minuscolo)
-  const SECURITY_ANSWER_HASH = "0c8a9de88a47b09cd5483d830e5d93b0f87f2fdf85e4e6e3c12c78c7b65c1fb2";
+  // Risposta cifrata (hash di "covid19" in minuscolo)
+  const SECURITY_ANSWER_HASH = "eebe24ec0eee3e52e88c03ea9da5a318f39e5ad5446b499259554c77c3fdf1cc";
 
   const handleSecurityCheck = async (e) => {
     e.preventDefault();
@@ -73,7 +73,7 @@ const ResetPassword = () => {
   return (
     <div className="reset-password">
       <div className="reset-container">
-        <h1>🔑 Reset Password</h1>
+        <h1>Reset Password</h1>
         
         {step === 1 && (
           <>
@@ -140,8 +140,8 @@ const ResetPassword = () => {
 
         {success && (
           <div className="success-message">
-            ✅ Password aggiornata con successo!<br/>
-            🔐 Per sicurezza, dovrai riconfigurare il token GitHub.<br/>
+            Password aggiornata con successo!<br/>
+            Per sicurezza, dovrai riconfigurare il token GitHub.<br/>
             Reindirizzamento al login...
           </div>
         )}
@@ -154,8 +154,8 @@ const ResetPassword = () => {
         </button>
 
         <div className="security-note">
-          <p>🔐 <strong>Nota Sicurezza:</strong> La password è crittografata usando SHA-256. La risposta di sicurezza predefinita è "transference" (modificabile in ResetPassword.jsx).</p>
-          <p style={{ marginTop: '0.5rem' }}>⚠️ <strong>Importante:</strong> Dopo il reset, i token GitHub salvati verranno eliminati. Dovrai riconfigurare l'accesso a GitHub per garantire che solo Grace possa modificare il sito.</p>
+          <p><strong>Nota Sicurezza:</strong> La password è crittografata usando SHA-256. La risposta di sicurezza predefinita è "Covid19" (modificabile in ResetPassword.jsx).</p>
+          <p style={{ marginTop: '0.5rem' }}><strong>Importante:</strong> Dopo il reset, i token GitHub salvati verranno eliminati. Dovrai riconfigurare l'accesso a GitHub per garantire che solo Grace possa modificare il sito.</p>
         </div>
       </div>
     </div>

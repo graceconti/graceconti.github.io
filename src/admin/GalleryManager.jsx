@@ -1,18 +1,20 @@
 import { useState, useEffect } from 'react';
 import githubService from '../services/githubService';
 import galleryDataJson from '../data/galleryData.json';
+import Modal from './Modal';
 import './GalleryManager.css';
 
 const GalleryManager = () => {
   const [items, setItems] = useState([]);
   const [editingItem, setEditingItem] = useState(null);
-  const [isAddingNew, setIsAddingNew] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [githubToken, setGithubToken] = useState('');
   const [repoOwner, setRepoOwner] = useState('');
   const [repoName, setRepoName] = useState('');
   const [showTokenSetup, setShowTokenSetup] = useState(false);
   const [uploadingImage, setUploadingImage] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [draggedIndex, setDraggedIndex] = useState(null);
 
   const [formData, setFormData] = useState({
     id: null,
@@ -26,7 +28,6 @@ const GalleryManager = () => {
   useEffect(() => {
     setItems(galleryDataJson);
     
-    // Load saved GitHub config
     const savedToken = localStorage.getItem('githubToken');
     const savedOwner = localStorage.getItem('githubRepoOwner');
     const savedName = localStorage.getItem('githubRepoName');
@@ -50,7 +51,7 @@ const GalleryManager = () => {
     localStorage.setItem('githubRepoOwner', repoOwner);
     localStorage.setItem('githubRepoName', repoName);
     setShowTokenSetup(false);
-    alert('Configurazione GitHub salvata! ✅');
+    alert('Configurazione GitHub salvata!');
   };
 
   const handleImageUpload = async (e) => {
@@ -77,7 +78,7 @@ const GalleryManager = () => {
         image: imagePath
       }));
       
-      alert('Immagine caricata con successo! ✅');
+      alert('Immagine caricata con successo!\nRicorda: sarà visibile dopo il deploy.');
     } catch (error) {
       console.error('Error uploading image:', error);
       alert('Errore nel caricamento: ' + error.message);
@@ -100,17 +101,14 @@ const GalleryManager = () => {
       let updatedItems;
       
       if (editingItem) {
-        // Update existing item
         updatedItems = items.map(item =>
           item.id === editingItem.id ? { ...formData, id: editingItem.id } : item
         );
       } else {
-        // Add new item
         const newId = items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1;
         updatedItems = [...items, { ...formData, id: newId }];
       }
 
-      // Commit to GitHub
       await githubService.updateGalleryData(
         updatedItems,
         githubToken,
@@ -120,7 +118,7 @@ const GalleryManager = () => {
 
       setItems(updatedItems);
       resetForm();
-      alert('Galleria aggiornata con successo! 🎉\nIl sito verrà aggiornato automaticamente tra pochi minuti.');
+      alert('Galleria aggiornata!\nIl sito verrà aggiornato tra pochi minuti.');
     } catch (error) {
       console.error('Error saving:', error);
       alert('Errore nel salvataggio: ' + error.message);
@@ -132,7 +130,7 @@ const GalleryManager = () => {
   const handleEdit = (item) => {
     setEditingItem(item);
     setFormData(item);
-    setIsAddingNew(false);
+    setIsModalOpen(true);
   };
 
   const handleDelete = async (id) => {
@@ -156,7 +154,7 @@ const GalleryManager = () => {
       );
 
       setItems(updatedItems);
-      alert('Elemento eliminato! ✅');
+      alert('Elemento eliminato!');
     } catch (error) {
       console.error('Error deleting:', error);
       alert('Errore nell\'eliminazione: ' + error.message);
@@ -175,29 +173,67 @@ const GalleryManager = () => {
       videoUrl: ''
     });
     setEditingItem(null);
-    setIsAddingNew(false);
+    setIsModalOpen(false);
   };
 
   const startAddNew = () => {
     resetForm();
-    setIsAddingNew(true);
+    setIsModalOpen(true);
+  };
+
+  const handleDragStart = (e, index) => {
+    setDraggedIndex(index);
+    e.dataTransfer.effectAllowed = 'move';
+  };
+
+  const handleDragOver = (e, index) => {
+    e.preventDefault();
+    if (draggedIndex === null || draggedIndex === index) return;
+
+    const newItems = [...items];
+    const draggedItem = newItems[draggedIndex];
+    newItems.splice(draggedIndex, 1);
+    newItems.splice(index, 0, draggedItem);
+
+    setItems(newItems);
+    setDraggedIndex(index);
+  };
+
+  const handleDragEnd = async () => {
+    if (draggedIndex === null) return;
+    
+    setDraggedIndex(null);
+    
+    if (!githubToken || !repoOwner || !repoName) return;
+
+    try {
+      await githubService.updateGalleryData(
+        items,
+        githubToken,
+        repoOwner,
+        repoName
+      );
+      alert('Ordine aggiornato!');
+    } catch (error) {
+      console.error('Error updating order:', error);
+      alert('Errore aggiornamento ordine: ' + error.message);
+    }
   };
 
   return (
     <div className="gallery-manager">
       <div className="manager-header">
-        <h2>🎬 Gestione Galleria</h2>
+        <h2>Gestione Galleria</h2>
         <button onClick={() => setShowTokenSetup(true)} className="config-btn">
-          ⚙️ Configurazione GitHub
+          Configurazione GitHub
         </button>
       </div>
 
       {showTokenSetup && (
         <div className="github-setup">
-          <h3>🔐 Configurazione GitHub</h3>
+          <h3>Configurazione GitHub</h3>
           <p className="setup-info">
-            Per permettere il caricamento automatico delle immagini e l'aggiornamento della galleria, 
-            inserisci i dati del tuo repository GitHub.
+            Per permettere il caricamento automatico, inserisci i dati del tuo repository GitHub.
           </p>
           
           <div className="setup-steps">
@@ -211,22 +247,22 @@ const GalleryManager = () => {
           </div>
 
           <div className="form-group">
-            <label>Repository Owner (es. "tuousername")</label>
+            <label>Repository Owner (es. "graceconti")</label>
             <input
               type="text"
               value={repoOwner}
               onChange={(e) => setRepoOwner(e.target.value)}
-              placeholder="tuousername"
+              placeholder="graceconti"
             />
           </div>
 
           <div className="form-group">
-            <label>Repository Name (es. "GraceWebsite")</label>
+            <label>Repository Name (es. "graceconti.github.io")</label>
             <input
               type="text"
               value={repoName}
               onChange={(e) => setRepoName(e.target.value)}
-              placeholder="GraceWebsite"
+              placeholder="graceconti.github.io"
             />
           </div>
 
@@ -242,9 +278,9 @@ const GalleryManager = () => {
 
           <div className="setup-actions">
             <button onClick={saveGithubConfig} className="save-config-btn">
-              💾 Salva Configurazione
+              Salva Configurazione
             </button>
-            {!showTokenSetup && (
+            {githubToken && (
               <button onClick={() => setShowTokenSetup(false)} className="cancel-btn">
                 Annulla
               </button>
@@ -257,15 +293,25 @@ const GalleryManager = () => {
         <>
           <div className="items-list">
             <div className="list-header">
-              <h3>📋 Elementi Attuali ({items.length})</h3>
+              <h3>Elementi Attuali ({items.length})</h3>
               <button onClick={startAddNew} className="add-btn">
-                ➕ Aggiungi Nuovo
+                Aggiungi Nuovo
               </button>
             </div>
 
+            <p className="drag-hint">Trascina le card per cambiare l'ordine di visualizzazione</p>
+
             <div className="items-grid">
-              {items.map(item => (
-                <div key={item.id} className="item-card">
+              {items.map((item, index) => (
+                <div
+                  key={item.id}
+                  className={`item-card ${draggedIndex === index ? 'dragging' : ''}`}
+                  draggable
+                  onDragStart={(e) => handleDragStart(e, index)}
+                  onDragOver={(e) => handleDragOver(e, index)}
+                  onDragEnd={handleDragEnd}
+                >
+                  <div className="drag-handle">⋮⋮</div>
                   <div className="item-preview">
                     <img src={item.image} alt={item.title} />
                     <span className={`item-type type-${item.type}`}>{item.type}</span>
@@ -276,10 +322,10 @@ const GalleryManager = () => {
                   </div>
                   <div className="item-actions">
                     <button onClick={() => handleEdit(item)} className="edit-btn">
-                      ✏️ Modifica
+                      Modifica
                     </button>
                     <button onClick={() => handleDelete(item.id)} className="delete-btn">
-                      🗑️ Elimina
+                      Elimina
                     </button>
                   </div>
                 </div>
@@ -287,89 +333,89 @@ const GalleryManager = () => {
             </div>
           </div>
 
-          {(isAddingNew || editingItem) && (
-            <div className="item-form">
-              <h3>{editingItem ? '✏️ Modifica Elemento' : '➕ Nuovo Elemento'}</h3>
-              
-              <form onSubmit={handleSubmit}>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label>Tipo *</label>
-                    <select
-                      value={formData.type}
-                      onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                      required
-                    >
-                      <option value="video">Video</option>
-                      <option value="photo">Photo</option>
-                      <option value="ai">AI</option>
-                    </select>
-                  </div>
-
-                  <div className="form-group">
-                    <label>Titolo *</label>
-                    <input
-                      type="text"
-                      value={formData.title}
-                      onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                      required
-                    />
-                  </div>
+          <Modal
+            isOpen={isModalOpen}
+            onClose={resetForm}
+            title={editingItem ? 'Modifica Elemento' : 'Nuovo Elemento'}
+          >
+            <form onSubmit={handleSubmit}>
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Tipo *</label>
+                  <select
+                    value={formData.type}
+                    onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+                    required
+                  >
+                    <option value="video">Video</option>
+                    <option value="photo">Photo</option>
+                    <option value="ai">AI</option>
+                  </select>
                 </div>
 
                 <div className="form-group">
-                  <label>Descrizione *</label>
-                  <textarea
-                    value={formData.description}
-                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                    rows="3"
+                  <label>Titolo *</label>
+                  <input
+                    type="text"
+                    value={formData.title}
+                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                     required
                   />
                 </div>
+              </div>
 
+              <div className="form-group">
+                <label>Descrizione *</label>
+                <textarea
+                  value={formData.description}
+                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  rows="3"
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Immagine / Thumbnail *</label>
+                <div className="image-upload">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    disabled={uploadingImage}
+                  />
+                  {uploadingImage && <span className="uploading">⏳ Caricamento...</span>}
+                  {formData.image && (
+                    <div className="image-preview">
+                      <img src={formData.image} alt="Preview" />
+                      <span>Immagine caricata</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {formData.type === 'video' && (
                 <div className="form-group">
-                  <label>Immagine / Thumbnail *</label>
-                  <div className="image-upload">
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={handleImageUpload}
-                      disabled={uploadingImage}
-                    />
-                    {uploadingImage && <span className="uploading">⏳ Caricamento...</span>}
-                    {formData.image && (
-                      <div className="image-preview">
-                        <img src={formData.image} alt="Preview" />
-                        <span>✅ Immagine caricata</span>
-                      </div>
-                    )}
-                  </div>
+                  <label>URL Video (YouTube, Vimeo, etc.) *</label>
+                  <input
+                    type="url"
+                    value={formData.videoUrl}
+                    onChange={(e) => setFormData({ ...formData, videoUrl: e.target.value })}
+                    placeholder="https://www.youtube.com/watch?v=..."
+                    required={formData.type === 'video'}
+                  />
                 </div>
+              )}
 
-                {formData.type === 'video' && (
-                  <div className="form-group">
-                    <label>URL Video (YouTube, Vimeo, etc.) *</label>
-                    <input
-                      type="url"
-                      value={formData.videoUrl}
-                      onChange={(e) => setFormData({ ...formData, videoUrl: e.target.value })}
-                      placeholder="https://www.youtube.com/watch?v=..."
-                      required={formData.type === 'video'}
-                    />
-                  </div>
-                )}
-
-                <div className="form-actions">
-                  <button type="submit" className="submit-btn" disabled={saving || uploadingImage}>
-                    {saving ? '⏳ Salvataggio...' : '💾 Salva e Pubblica'}
-                  </button>
-                  <button type="button" onClick={resetForm} className="cancel-btn">
-                    ❌ Annulla
-                  </button>
-                </div>
-              </form>
-            </div>
-          )}
+              <div className="form-actions">
+                <button type="submit" className="submit-btn" disabled={saving || uploadingImage}>
+                  {saving ? 'Salvataggio...' : 'Salva e Pubblica'}
+                </button>
+                <button type="button" onClick={resetForm} className="cancel-btn">
+                  Annulla
+                </button>
+              </div>
+            </form>
+          </Modal>
         </>
       )}
     </div>

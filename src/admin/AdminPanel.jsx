@@ -18,10 +18,10 @@ const AdminPanel = () => {
         <h1>Admin Panel - Grace Portfolio</h1>
         <div className="admin-actions">
           <button onClick={() => navigate('/')} className="view-site-btn">
-            🌐 Visualizza Sito
+            Visualizza Sito
           </button>
           <button onClick={handleLogout} className="logout-btn">
-            🚪 Esci
+            Esci
           </button>
         </div>
       </div>

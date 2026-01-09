@@ -119,6 +119,13 @@
   margin: 0;
 }
 
+.drag-hint {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
 .add-btn {
   padding: 0.75rem 1.5rem;
   background: #d4af37;
@@ -147,11 +154,39 @@
   border-radius: 8px;
   overflow: hidden;
   transition: all 0.3s ease;
+  cursor: grab;
+  position: relative;
+}
+
+.item-card:active {
+  cursor: grabbing;
+}
+
+.item-card.dragging {
+  opacity: 0.5;
+  transform: scale(0.95);
 }
 
 .item-card:hover {
   border-color: #d4af37;
   box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+.drag-handle {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  color: rgba(212, 175, 55, 0.5);
+  font-size: 1.2rem;
+  cursor: grab;
+  z-index: 10;
+  padding: 0.25rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
 }
 
 .item-preview {

@@ -65,7 +65,7 @@ const AdminLogin = () => {
             className="reset-password-btn"
             onClick={() => navigate('/admin/reset-password')}
           >
-            🔑 Reset Password
+            Reset Password
           </button>
           <button 
             className="back-btn"
