@@ -143,7 +143,7 @@ const Gallery = () => {
           </div>
         )}
 
-        {/* Modal/Lightbox */}
+        {/* Modal/Lightbox per immagini */}
         {selectedItem && (
           <div className="modal-overlay" onClick={closeModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -154,9 +154,8 @@ const Gallery = () => {
                 </svg>
               </button>
               <div className="modal-image">
-                <div className="modal-placeholder">
-                  <span className="item-type-badge">{selectedItem.type.toUpperCase()}</span>
-                </div>
+                <img src={selectedItem.image} alt={selectedItem.title} />
+                <span className="item-type-badge">{selectedItem.type.toUpperCase()}</span>
               </div>
               <div className="modal-info">
                 <h2>{selectedItem.title}</h2>

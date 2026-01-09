@@ -236,30 +236,28 @@
 
 .modal-image {
   width: 100%;
-  aspect-ratio: 16/9;
+  max-height: 75vh;
   background-color: var(--bg-secondary);
   border: 2px solid var(--border-color);
   overflow: hidden;
-}
-
-.modal-placeholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
 
-.modal-placeholder::before {
-  content: '';
+.modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.modal-image .item-type-badge {
   position: absolute;
-  top: 30px;
-  left: 30px;
-  right: 30px;
-  bottom: 30px;
-  border: 1px solid var(--border-color);
+  top: 20px;
+  left: 20px;
+  z-index: 1;
 }
 
 .modal-info {
