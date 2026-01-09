@@ -1,19 +1,19 @@
 [
   {
-    "id": 1,
-    "type": "video",
-    "title": "Soul Mates",
-    "description": "Behind The Scenes of the film 'Soul Mates'",
-    "image": "/gallery/soul_mates.webp",
-    "videoUrl": "https://www.youtube.com/watch?v=mkM2wKTL3cY"
-  },
-  {
     "id": 2,
     "type": "video",
     "title": "Mercoledì",
     "description": "Wednesday Dance (reinterpretation)",
     "image": "/gallery/mercoledi.webp",
     "videoUrl": "https://www.youtube.com/watch?v=wSN7Uv9aF8c"
+  },
+  {
+    "id": 1,
+    "type": "video",
+    "title": "Soul Mates",
+    "description": "Behind The Scenes of the film 'Soul Mates'",
+    "image": "/gallery/soul_mates.webp",
+    "videoUrl": "https://www.youtube.com/watch?v=mkM2wKTL3cY"
   },
   {
     "id": 3,
