@@ -31,23 +31,9 @@ const GalleryManager = () => {
   });
 
   const loadGalleryData = async () => {
-    try {
-      // Prova a caricare dal server (dopo deploy)
-      const response = await fetch('/src/data/galleryData.json?t=' + Date.now());
-      if (response.ok) {
-        const data = await response.json();
-        setItems(data);
-        originalItemsRef.current = data;
-      } else {
-        // Fallback ai dati importati
-        setItems(galleryDataJson);
-        originalItemsRef.current = galleryDataJson;
-      }
-    } catch (error) {
-      // Fallback ai dati importati
-      setItems(galleryDataJson);
-      originalItemsRef.current = galleryDataJson;
-    }
+    // Carica sempre dai dati importati (che sono bundlati)
+    setItems(galleryDataJson);
+    originalItemsRef.current = galleryDataJson;
   };
 
   useEffect(() => {
@@ -126,9 +112,29 @@ const GalleryManager = () => {
       let updatedItems;
       
       if (editingItem) {
-        updatedItems = items.map(item =>
-          item.id === editingItem.id ? { ...formData, id: editingItem.id } : item
-        );
+        // Controlla se il tipo è cambiato
+        const typeChanged = editingItem.type !== formData.type;
+        
+        if (typeChanged) {
+          // Se il tipo è cambiato, calcola il nuovo relativeIndex
+          const sameTypeItems = items.filter(item => 
+            item.type === formData.type && item.id !== editingItem.id
+          );
+          const maxRelativeIndex = sameTypeItems.length > 0 
+            ? Math.max(...sameTypeItems.map(i => i.relativeIndex || 0)) 
+            : -1;
+          
+          updatedItems = items.map(item =>
+            item.id === editingItem.id 
+              ? { ...formData, id: editingItem.id, relativeIndex: maxRelativeIndex + 1 } 
+              : item
+          );
+        } else {
+          // Se il tipo non è cambiato, mantieni il relativeIndex esistente
+          updatedItems = items.map(item =>
+            item.id === editingItem.id ? { ...formData, id: editingItem.id } : item
+          );
+        }
       } else {
         const newId = items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1;
         // Calcola il relativeIndex più alto per il tipo selezionato
@@ -151,8 +157,6 @@ const GalleryManager = () => {
       setHasUnsavedChanges(false);
       resetForm();
       alert('Galleria aggiornata!\nIl sito verrà aggiornato tra pochi minuti.');
-      // Ricarica i dati dopo qualche secondo per sincronizzarsi con il server
-      setTimeout(() => loadGalleryData(), 3000);
     } catch (error) {
       console.error('Error saving:', error);
       alert('Errore nel salvataggio: ' + error.message);
@@ -191,8 +195,6 @@ const GalleryManager = () => {
       originalItemsRef.current = updatedItems;
       setHasUnsavedChanges(false);
       alert('Elemento eliminato!');
-      // Ricarica i dati dopo qualche secondo per sincronizzarsi con il server
-      setTimeout(() => loadGalleryData(), 3000);
     } catch (error) {
       console.error('Error deleting:', error);
       alert('Errore nell\'eliminazione: ' + error.message);
@@ -276,8 +278,6 @@ const GalleryManager = () => {
       originalItemsRef.current = items;
       setHasUnsavedChanges(false);
       alert('Ordine salvato con successo!');
-      // Ricarica i dati dopo qualche secondo per sincronizzarsi con il server
-      setTimeout(() => loadGalleryData(), 3000);
     } catch (error) {
       console.error('Error updating order:', error);
       alert('Errore nel salvataggio: ' + error.message);
