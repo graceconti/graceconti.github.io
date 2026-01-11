@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import githubService from '../services/githubService';
 import galleryDataJson from '../data/galleryData.json';
 import Modal from './Modal';
@@ -16,6 +16,7 @@ const GalleryManager = () => {
   const [uploadingImage, setUploadingImage] = useState(false);
   const [saving, setSaving] = useState(false);
   const [draggedIndex, setDraggedIndex] = useState(null);
+  const draggedItemsRef = useRef(null);
 
   const [formData, setFormData] = useState({
     id: null,
@@ -213,6 +214,8 @@ const GalleryManager = () => {
       updatedItems[globalIndex] = filteredCopy[localIndex];
     });
 
+    // Salva nella ref per usarla in handleDragEnd
+    draggedItemsRef.current = updatedItems;
     setItems(updatedItems);
     setDraggedIndex(index);
   };
@@ -220,13 +223,15 @@ const GalleryManager = () => {
   const handleDragEnd = async () => {
     if (draggedIndex === null) return;
     
+    const itemsToSave = draggedItemsRef.current || items;
     setDraggedIndex(null);
+    draggedItemsRef.current = null;
     
     if (!githubToken || !repoOwner || !repoName) return;
 
     try {
       await githubService.updateGalleryData(
-        items,
+        itemsToSave,
         githubToken,
         repoOwner,
         repoName
