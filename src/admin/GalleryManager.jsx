@@ -193,21 +193,24 @@ const GalleryManager = () => {
     e.preventDefault();
     if (draggedIndex === null || draggedIndex === index) return;
 
+    // Crea una copia dell'array filtrato e riordina
     const filteredCopy = [...filteredItems];
     const draggedItem = filteredCopy[draggedIndex];
     filteredCopy.splice(draggedIndex, 1);
     filteredCopy.splice(index, 0, draggedItem);
 
-    const allItems = items.map(item => {
-      const filteredIndex = filteredCopy.findIndex(fi => fi.id === item.id);
-      if (filteredIndex !== -1) return filteredCopy[filteredIndex];
+    // Ricostruisci l'array completo mantenendo l'ordine originale per gli altri tipi
+    const updatedItems = items.map(item => {
+      // Se l'elemento è del tipo filtrato, usa la nuova posizione dall'array filtrato
+      if (item.type === filter) {
+        const newIndex = filteredCopy.findIndex(fi => fi.id === item.id);
+        return newIndex !== -1 ? filteredCopy[newIndex] : item;
+      }
+      // Altrimenti mantieni l'elemento com'è
       return item;
     });
 
-    const remainingFiltered = allItems.filter(item => item.type === filter);
-    const otherItems = allItems.filter(item => item.type !== filter);
-    
-    setItems([...remainingFiltered, ...otherItems]);
+    setItems(updatedItems);
     setDraggedIndex(index);
   };
 

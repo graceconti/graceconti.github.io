@@ -9,9 +9,8 @@ const Home = () => {
           <h1 className="home-title">Grace Conti</h1>
           <p className="home-subtitle">Creative Artist & Visual Storyteller</p>
           <p className="home-description">
-            Exploring the boundaries between imagination and reality through 
-            photography, video, and artificial intelligence. Each piece tells 
-            a unique story, blending traditional artistry with cutting-edge technology.
+            Shaping engaging visual narratives through editing and storytelling.
+            Bringing ideas to life through rhythm, emotion and visual sensibility.
           </p>
           <button className="home-cta" onClick={() => {
             document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' });

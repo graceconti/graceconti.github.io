@@ -21,15 +21,13 @@ const About = () => {
           <div className={`about-text scroll-animate-right ${isVisible ? 'visible' : ''}`}>
             <h3>Creative Vision Meets Technical Excellence</h3>
             <p>
-              Hello! I'm Grace Conti, a passionate visual artist specializing in photography, 
-              videography, and AI-generated art. My work explores the intersection of traditional 
-              artistic techniques and emerging technologies.
+              Hi there! I'm Grace Conti, a London-based showrunner and video editor with a passion for storytelling and visual artistry. With over 4 years of experience, I have contributed to the production and post-production of a diverse range of independent films, documentaries, music videos, and behind-the-scenes film content.
             </p>
             <p>
-              With years of experience in visual storytelling, I've developed a unique style 
-              that combines emotional depth with technical precision. Whether capturing moments 
-              through the lens or creating entirely new worlds with AI, my goal is to evoke 
-              emotion and spark imagination.
+              My journey has allowed me to work closely with filmmakers, artists, and production teams, bringing creative visions to life while aiming for high-quality standards. My work is characterized by meticulous attention to detail, a creative and problem-solving mindset, and strong communication and collaboration skills.
+            </p>
+            <p>
+              Outside of work, I'm inspired by music, art, design and fashion — everything that feeds imagination and creative vision.
             </p>
             
             <div className="about-skills">
