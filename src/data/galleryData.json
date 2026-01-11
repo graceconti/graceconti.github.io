@@ -15,7 +15,7 @@
     "description": "Wednesday Dance (reinterpretation)",
     "image": "/gallery/mercoledi.webp",
     "videoUrl": "https://www.youtube.com/watch?v=wSN7Uv9aF8c",
-    "relativeIndex": 1
+    "relativeIndex": 3
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "description": "Transference Therapy Scene directed by Grace Conti",
     "image": "/gallery/transference.webp",
     "videoUrl": "https://youtu.be/-CZlizc9GGk",
-    "relativeIndex": 3
+    "relativeIndex": 1
   },
   {
     "id": 4,
@@ -51,7 +51,7 @@
     "description": "Homemade trailer for the video 'I Like to make stuff'",
     "image": "/gallery/make_stuff_edit.webp",
     "videoUrl": "https://www.youtube.com/watch?v=JkkwRTH8NdI",
-    "relativeIndex": 7
+    "relativeIndex": 6
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "description": "My first montage for UWL",
     "image": "/gallery/offender.webp",
     "videoUrl": "https://www.youtube.com/watch?v=YghKDgUOwr8",
-    "relativeIndex": 9
+    "relativeIndex": 8
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "description": "Personal edit of the interview to Stan Middlelton Puppeter",
     "image": "/gallery/puppets.webp",
     "videoUrl": "https://www.youtube.com/watch?v=w3vc2csJHo4",
-    "relativeIndex": 8
+    "relativeIndex": 7
   },
   {
     "id": 9,
