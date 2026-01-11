@@ -6,7 +6,7 @@
     "description": "Behind The Scenes of the film 'Soul Mates'",
     "image": "/gallery/soul_mates.webp",
     "videoUrl": "https://www.youtube.com/watch?v=mkM2wKTL3cY",
-    "relativeIndex": 0
+    "relativeIndex": 1
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "description": "Wednesday Dance (reinterpretation)",
     "image": "/gallery/mercoledi.webp",
     "videoUrl": "https://www.youtube.com/watch?v=wSN7Uv9aF8c",
-    "relativeIndex": 1
+    "relativeIndex": 0
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "description": "Transference Therapy Scene directed by Grace Conti",
     "image": "/gallery/transference.webp",
     "videoUrl": "https://youtu.be/-CZlizc9GGk",
-    "relativeIndex": 2
+    "relativeIndex": 3
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "description": "Short edited video of \"I like to make stuff\" with the great Bob Clagett!",
     "image": "/gallery/make_stuff_full.webp",
     "videoUrl": "https://www.youtube.com/watch?v=yqT_kM-Z_hc",
-    "relativeIndex": 3
+    "relativeIndex": 2
   },
   {
     "id": 5,
