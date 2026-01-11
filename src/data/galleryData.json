@@ -6,7 +6,7 @@
     "description": "Behind The Scenes of the film 'Soul Mates'",
     "image": "/gallery/soul_mates.webp",
     "videoUrl": "https://www.youtube.com/watch?v=mkM2wKTL3cY",
-    "relativeIndex": 1
+    "relativeIndex": 0
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "description": "Wednesday Dance (reinterpretation)",
     "image": "/gallery/mercoledi.webp",
     "videoUrl": "https://www.youtube.com/watch?v=wSN7Uv9aF8c",
-    "relativeIndex": 0
+    "relativeIndex": 1
   },
   {
     "id": 3,
@@ -33,7 +33,7 @@
     "description": "Short edited video of \"I like to make stuff\" with the great Bob Clagett!",
     "image": "/gallery/make_stuff_full.webp",
     "videoUrl": "https://www.youtube.com/watch?v=yqT_kM-Z_hc",
-    "relativeIndex": 2
+    "relativeIndex": 5
   },
   {
     "id": 5,
@@ -51,7 +51,7 @@
     "description": "Homemade trailer for the video 'I Like to make stuff'",
     "image": "/gallery/make_stuff_edit.webp",
     "videoUrl": "https://www.youtube.com/watch?v=JkkwRTH8NdI",
-    "relativeIndex": 5
+    "relativeIndex": 7
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "description": "My first montage for UWL",
     "image": "/gallery/offender.webp",
     "videoUrl": "https://www.youtube.com/watch?v=YghKDgUOwr8",
-    "relativeIndex": 6
+    "relativeIndex": 9
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "description": "Personal edit of the interview to Stan Middlelton Puppeter",
     "image": "/gallery/puppets.webp",
     "videoUrl": "https://www.youtube.com/watch?v=w3vc2csJHo4",
-    "relativeIndex": 7
+    "relativeIndex": 8
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "description": "After Effect Beginners Course Final Project",
     "image": "/gallery/ae_project.webp",
     "videoUrl": "https://www.youtube.com/watch?v=atvor_JN6Bk",
-    "relativeIndex": 8
+    "relativeIndex": 6
   },
   {
     "id": 10,
@@ -87,6 +87,6 @@
     "description": "Video Yole Ice Cream",
     "image": "/gallery/image_1768000861131.png",
     "videoUrl": "https://www.youtube.com/watch?v=SI5rycbjEYE",
-    "relativeIndex": 9
+    "relativeIndex": 2
   }
 ]
