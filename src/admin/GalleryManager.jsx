@@ -26,6 +26,7 @@ const GalleryManager = () => {
     description: '',
     image: '',
     videoUrl: '',
+    link: '',
     relativeIndex: 0
   });
 
@@ -208,6 +209,7 @@ const GalleryManager = () => {
       description: '',
       image: '',
       videoUrl: '',
+      link: '',
       relativeIndex: 0
     });
     setEditingItem(null);
@@ -295,7 +297,7 @@ const GalleryManager = () => {
         <h2>Gestione Galleria</h2>
         <div className="header-actions">
           <button onClick={loadGalleryData} className="refresh-btn" title="Ricarica dati dal server">
-            🔄 Refresh
+            Refresh
           </button>
           <button onClick={() => setShowTokenSetup(true)} className="config-btn">
             Configurazione GitHub
@@ -514,6 +516,19 @@ const GalleryManager = () => {
                   />
                 </div>
               )}
+
+              <div className="form-group">
+                <label>Link Esterno (opzionale)</label>
+                <input
+                  type="url"
+                  value={formData.link}
+                  onChange={(e) => setFormData({ ...formData, link: e.target.value })}
+                  placeholder="https://..."
+                />
+                <small style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem' }}>
+                  Se presente, il link verrà aperto quando l'utente clicca sull'elemento
+                </small>
+              </div>
 
               <div className="form-actions">
                 <button type="submit" className="submit-btn" disabled={saving || uploadingImage}>

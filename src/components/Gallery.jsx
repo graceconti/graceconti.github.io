@@ -48,13 +48,26 @@ const Gallery = () => {
   };
 
   const openModal = (item) => {
-    // Se è un video, apri il link in una nuova scheda
+    // Le foto aprono sempre il modal (per ingrandire)
+    if (item.type === 'photo') {
+      setSelectedItem(item);
+      document.body.style.overflow = 'hidden';
+      return;
+    }
+    
+    // Per video e AI: se c'è un link esterno, aprilo
+    if (item.link) {
+      window.open(item.link, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    
+    // Se è un video senza link, apri il videoUrl
     if (item.type === 'video' && item.videoUrl) {
       window.open(item.videoUrl, '_blank', 'noopener,noreferrer');
       return;
     }
     
-    // Altrimenti apri il modal per photo e AI
+    // Per AI senza link, apri il modal
     setSelectedItem(item);
     document.body.style.overflow = 'hidden';
   };
