@@ -199,15 +199,18 @@ const GalleryManager = () => {
     filteredCopy.splice(draggedIndex, 1);
     filteredCopy.splice(index, 0, draggedItem);
 
-    // Ricostruisci l'array completo mantenendo l'ordine originale per gli altri tipi
-    const updatedItems = items.map(item => {
-      // Se l'elemento è del tipo filtrato, usa la nuova posizione dall'array filtrato
+    // Trova gli indici nell'array completo degli elementi del tipo filtrato
+    const updatedItems = [...items];
+    const filteredIndices = [];
+    items.forEach((item, i) => {
       if (item.type === filter) {
-        const newIndex = filteredCopy.findIndex(fi => fi.id === item.id);
-        return newIndex !== -1 ? filteredCopy[newIndex] : item;
+        filteredIndices.push(i);
       }
-      // Altrimenti mantieni l'elemento com'è
-      return item;
+    });
+
+    // Sostituisci gli elementi nelle posizioni corrette con quelli riordinati
+    filteredIndices.forEach((globalIndex, localIndex) => {
+      updatedItems[globalIndex] = filteredCopy[localIndex];
     });
 
     setItems(updatedItems);
