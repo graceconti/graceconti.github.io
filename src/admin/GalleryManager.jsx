@@ -16,7 +16,8 @@ const GalleryManager = () => {
   const [uploadingImage, setUploadingImage] = useState(false);
   const [saving, setSaving] = useState(false);
   const [draggedIndex, setDraggedIndex] = useState(null);
-  const draggedItemsRef = useRef(null);
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
+  const originalItemsRef = useRef([]);
 
   const [formData, setFormData] = useState({
     id: null,
@@ -29,6 +30,7 @@ const GalleryManager = () => {
 
   useEffect(() => {
     setItems(galleryDataJson);
+    originalItemsRef.current = galleryDataJson;
     
     const savedToken = localStorage.getItem('githubToken');
     const savedOwner = localStorage.getItem('githubRepoOwner');
@@ -119,6 +121,8 @@ const GalleryManager = () => {
       );
 
       setItems(updatedItems);
+      originalItemsRef.current = updatedItems;
+      setHasUnsavedChanges(false);
       resetForm();
       alert('Galleria aggiornata!\nIl sito verrà aggiornato tra pochi minuti.');
     } catch (error) {
@@ -156,6 +160,8 @@ const GalleryManager = () => {
       );
 
       setItems(updatedItems);
+      originalItemsRef.current = updatedItems;
+      setHasUnsavedChanges(false);
       alert('Elemento eliminato!');
     } catch (error) {
       console.error('Error deleting:', error);
@@ -214,33 +220,44 @@ const GalleryManager = () => {
       updatedItems[globalIndex] = filteredCopy[localIndex];
     });
 
-    // Salva nella ref per usarla in handleDragEnd
-    draggedItemsRef.current = updatedItems;
     setItems(updatedItems);
+    setHasUnsavedChanges(true);
     setDraggedIndex(index);
   };
 
-  const handleDragEnd = async () => {
-    if (draggedIndex === null) return;
-    
-    const itemsToSave = draggedItemsRef.current || items;
+  const handleDragEnd = () => {
     setDraggedIndex(null);
-    draggedItemsRef.current = null;
-    
-    if (!githubToken || !repoOwner || !repoName) return;
+  };
 
+  const saveOrder = async () => {
+    if (!githubToken || !repoOwner || !repoName) {
+      alert('Configura prima le credenziali GitHub!');
+      setShowTokenSetup(true);
+      return;
+    }
+
+    setSaving(true);
     try {
       await githubService.updateGalleryData(
-        itemsToSave,
+        items,
         githubToken,
         repoOwner,
         repoName
       );
-      alert('Ordine aggiornato!');
+      originalItemsRef.current = items;
+      setHasUnsavedChanges(false);
+      alert('Ordine salvato con successo!');
     } catch (error) {
       console.error('Error updating order:', error);
-      alert('Errore aggiornamento ordine: ' + error.message);
+      alert('Errore nel salvataggio: ' + error.message);
+    } finally {
+      setSaving(false);
     }
+  };
+
+  const cancelReorder = () => {
+    setItems(originalItemsRef.current);
+    setHasUnsavedChanges(false);
   };
 
   return (
@@ -342,6 +359,20 @@ const GalleryManager = () => {
                 AI ({items.filter(i => i.type === 'ai').length})
               </button>
             </div>
+
+            {hasUnsavedChanges && (
+              <div className="unsaved-changes-bar">
+                <span>⚠️ Hai modifiche non salvate all'ordine degli elementi</span>
+                <div className="unsaved-actions">
+                  <button onClick={saveOrder} className="save-order-btn" disabled={saving}>
+                    {saving ? 'Salvataggio...' : '✓ Salva Ordine'}
+                  </button>
+                  <button onClick={cancelReorder} className="cancel-order-btn" disabled={saving}>
+                    ✕ Annulla
+                  </button>
+                </div>
+              </div>
+            )}
 
             <p className="drag-hint">Trascina le card per cambiare l'ordine di visualizzazione (all'interno del filtro selezionato)</p>
 
