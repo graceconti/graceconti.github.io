@@ -29,6 +29,28 @@ const About = () => {
             <p>
               Outside of work, I'm inspired by music, art, design and fashion — everything that feeds imagination and creative vision.
             </p>
+
+            <div className="software-tools">
+              <h4>Tools & Software</h4>
+              <div className="tools-icons">
+                <div className="tool-icon">
+                  <img src="/icons/premiere.svg" alt="Adobe Premiere Pro" />
+                  <span>Premiere Pro</span>
+                </div>
+                <div className="tool-icon">
+                  <img src="/icons/aftereffects.svg" alt="After Effects" />
+                  <span>After Effects</span>
+                </div>
+                <div className="tool-icon">
+                  <img src="/icons/photoshop.svg" alt="Photoshop" />
+                  <span>Photoshop</span>
+                </div>
+                <div className="tool-icon">
+                  <img src="/icons/davinciresolve.svg" alt="DaVinci Resolve" />
+                  <span>DaVinci Resolve</span>
+                </div>
+              </div>
+            </div>
             
             <div className="about-skills">
               <div className="skill-item">
