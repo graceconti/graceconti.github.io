@@ -29,9 +29,28 @@ const GalleryManager = () => {
     relativeIndex: 0
   });
 
+  const loadGalleryData = async () => {
+    try {
+      // Prova a caricare dal server (dopo deploy)
+      const response = await fetch('/src/data/galleryData.json?t=' + Date.now());
+      if (response.ok) {
+        const data = await response.json();
+        setItems(data);
+        originalItemsRef.current = data;
+      } else {
+        // Fallback ai dati importati
+        setItems(galleryDataJson);
+        originalItemsRef.current = galleryDataJson;
+      }
+    } catch (error) {
+      // Fallback ai dati importati
+      setItems(galleryDataJson);
+      originalItemsRef.current = galleryDataJson;
+    }
+  };
+
   useEffect(() => {
-    setItems(galleryDataJson);
-    originalItemsRef.current = galleryDataJson;
+    loadGalleryData();
     
     const savedToken = localStorage.getItem('githubToken');
     const savedOwner = localStorage.getItem('githubRepoOwner');
@@ -131,6 +150,8 @@ const GalleryManager = () => {
       setHasUnsavedChanges(false);
       resetForm();
       alert('Galleria aggiornata!\nIl sito verrà aggiornato tra pochi minuti.');
+      // Ricarica i dati dopo qualche secondo per sincronizzarsi con il server
+      setTimeout(() => loadGalleryData(), 3000);
     } catch (error) {
       console.error('Error saving:', error);
       alert('Errore nel salvataggio: ' + error.message);
@@ -169,6 +190,8 @@ const GalleryManager = () => {
       originalItemsRef.current = updatedItems;
       setHasUnsavedChanges(false);
       alert('Elemento eliminato!');
+      // Ricarica i dati dopo qualche secondo per sincronizzarsi con il server
+      setTimeout(() => loadGalleryData(), 3000);
     } catch (error) {
       console.error('Error deleting:', error);
       alert('Errore nell\'eliminazione: ' + error.message);
@@ -251,6 +274,8 @@ const GalleryManager = () => {
       originalItemsRef.current = items;
       setHasUnsavedChanges(false);
       alert('Ordine salvato con successo!');
+      // Ricarica i dati dopo qualche secondo per sincronizzarsi con il server
+      setTimeout(() => loadGalleryData(), 3000);
     } catch (error) {
       console.error('Error updating order:', error);
       alert('Errore nel salvataggio: ' + error.message);
@@ -268,9 +293,14 @@ const GalleryManager = () => {
     <div className="gallery-manager">
       <div className="manager-header">
         <h2>Gestione Galleria</h2>
-        <button onClick={() => setShowTokenSetup(true)} className="config-btn">
-          Configurazione GitHub
-        </button>
+        <div className="header-actions">
+          <button onClick={loadGalleryData} className="refresh-btn" title="Ricarica dati dal server">
+            🔄 Refresh
+          </button>
+          <button onClick={() => setShowTokenSetup(true)} className="config-btn">
+            Configurazione GitHub
+          </button>
+        </div>
       </div>
 
       {showTokenSetup && (
