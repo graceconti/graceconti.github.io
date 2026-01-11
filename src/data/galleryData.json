@@ -38,8 +38,8 @@
   {
     "id": 5,
     "type": "video",
-    "title": "Own Doc",
-    "description": "My Own Documentary",
+    "title": "Documentary – Covid 19: Life Reborn",
+    "description": "A short documentary exploring isolation and resilience during the Covid-19 pandemic through remote interviews and personal testimonies.\nDirected and edited by Grace Conti.",
     "image": "/gallery/own_doc.webp",
     "videoUrl": "https://www.youtube.com/watch?v=r8XsFrPJfeM",
     "relativeIndex": 4
