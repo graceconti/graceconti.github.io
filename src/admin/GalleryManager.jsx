@@ -25,7 +25,8 @@ const GalleryManager = () => {
     title: '',
     description: '',
     image: '',
-    videoUrl: ''
+    videoUrl: '',
+    relativeIndex: 0
   });
 
   useEffect(() => {
@@ -110,7 +111,12 @@ const GalleryManager = () => {
         );
       } else {
         const newId = items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1;
-        updatedItems = [...items, { ...formData, id: newId }];
+        // Calcola il relativeIndex più alto per il tipo selezionato
+        const sameTypeItems = items.filter(item => item.type === formData.type);
+        const maxRelativeIndex = sameTypeItems.length > 0 
+          ? Math.max(...sameTypeItems.map(i => i.relativeIndex || 0)) 
+          : -1;
+        updatedItems = [...items, { ...formData, id: newId, relativeIndex: maxRelativeIndex + 1 }];
       }
 
       await githubService.updateGalleryData(
@@ -178,7 +184,8 @@ const GalleryManager = () => {
       title: '',
       description: '',
       image: '',
-      videoUrl: ''
+      videoUrl: '',
+      relativeIndex: 0
     });
     setEditingItem(null);
     setIsModalOpen(false);
@@ -189,7 +196,9 @@ const GalleryManager = () => {
     setIsModalOpen(true);
   };
 
-  const filteredItems = items.filter(item => item.type === filter);
+  const filteredItems = items
+    .filter(item => item.type === filter)
+    .sort((a, b) => (a.relativeIndex || 0) - (b.relativeIndex || 0));
 
   const handleDragStart = (e, index) => {
     setDraggedIndex(index);
@@ -200,24 +209,19 @@ const GalleryManager = () => {
     e.preventDefault();
     if (draggedIndex === null || draggedIndex === index) return;
 
-    // Crea una copia dell'array filtrato e riordina
+    // Trova gli ID degli elementi filtrati nell'ordine riordinato
     const filteredCopy = [...filteredItems];
     const draggedItem = filteredCopy[draggedIndex];
     filteredCopy.splice(draggedIndex, 1);
     filteredCopy.splice(index, 0, draggedItem);
 
-    // Trova gli indici nell'array completo degli elementi del tipo filtrato
-    const updatedItems = [...items];
-    const filteredIndices = [];
-    items.forEach((item, i) => {
-      if (item.type === filter) {
-        filteredIndices.push(i);
+    // Aggiorna solo i relativeIndex degli elementi filtrati
+    const updatedItems = items.map(item => {
+      const newIndex = filteredCopy.findIndex(fi => fi.id === item.id);
+      if (newIndex !== -1) {
+        return { ...item, relativeIndex: newIndex };
       }
-    });
-
-    // Sostituisci gli elementi nelle posizioni corrette con quelli riordinati
-    filteredIndices.forEach((globalIndex, localIndex) => {
-      updatedItems[globalIndex] = filteredCopy[localIndex];
+      return item;
     });
 
     setItems(updatedItems);

@@ -5,7 +5,8 @@
     "title": "Soul Mates",
     "description": "Behind The Scenes of the film 'Soul Mates'",
     "image": "/gallery/soul_mates.webp",
-    "videoUrl": "https://www.youtube.com/watch?v=mkM2wKTL3cY"
+    "videoUrl": "https://www.youtube.com/watch?v=mkM2wKTL3cY",
+    "relativeIndex": 0
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "title": "Mercoledì",
     "description": "Wednesday Dance (reinterpretation)",
     "image": "/gallery/mercoledi.webp",
-    "videoUrl": "https://www.youtube.com/watch?v=wSN7Uv9aF8c"
+    "videoUrl": "https://www.youtube.com/watch?v=wSN7Uv9aF8c",
+    "relativeIndex": 1
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "title": "Transference",
     "description": "Transference Therapy Scene directed by Grace Conti",
     "image": "/gallery/transference.webp",
-    "videoUrl": "https://youtu.be/-CZlizc9GGk"
+    "videoUrl": "https://youtu.be/-CZlizc9GGk",
+    "relativeIndex": 2
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "title": "I Like to make stuff",
     "description": "Short edited video of \"I like to make stuff\" with the great Bob Clagett!",
     "image": "/gallery/make_stuff_full.webp",
-    "videoUrl": "https://www.youtube.com/watch?v=yqT_kM-Z_hc"
+    "videoUrl": "https://www.youtube.com/watch?v=yqT_kM-Z_hc",
+    "relativeIndex": 3
   },
   {
     "id": 5,
@@ -37,7 +41,8 @@
     "title": "Own Doc",
     "description": "My Own Documentary",
     "image": "/gallery/own_doc.webp",
-    "videoUrl": "https://www.youtube.com/watch?v=r8XsFrPJfeM"
+    "videoUrl": "https://www.youtube.com/watch?v=r8XsFrPJfeM",
+    "relativeIndex": 4
   },
   {
     "id": 6,
@@ -45,7 +50,8 @@
     "title": "I Like to make stuff (EDIT)",
     "description": "Homemade trailer for the video 'I Like to make stuff'",
     "image": "/gallery/make_stuff_edit.webp",
-    "videoUrl": "https://www.youtube.com/watch?v=JkkwRTH8NdI"
+    "videoUrl": "https://www.youtube.com/watch?v=JkkwRTH8NdI",
+    "relativeIndex": 5
   },
   {
     "id": 7,
@@ -53,7 +59,8 @@
     "title": "Offender",
     "description": "My first montage for UWL",
     "image": "/gallery/offender.webp",
-    "videoUrl": "https://www.youtube.com/watch?v=YghKDgUOwr8"
+    "videoUrl": "https://www.youtube.com/watch?v=YghKDgUOwr8",
+    "relativeIndex": 6
   },
   {
     "id": 8,
@@ -61,7 +68,8 @@
     "title": "Puppets",
     "description": "Personal edit of the interview to Stan Middlelton Puppeter",
     "image": "/gallery/puppets.webp",
-    "videoUrl": "https://www.youtube.com/watch?v=w3vc2csJHo4"
+    "videoUrl": "https://www.youtube.com/watch?v=w3vc2csJHo4",
+    "relativeIndex": 7
   },
   {
     "id": 9,
@@ -69,7 +77,8 @@
     "title": "AE Project",
     "description": "After Effect Beginners Course Final Project",
     "image": "/gallery/ae_project.webp",
-    "videoUrl": "https://www.youtube.com/watch?v=atvor_JN6Bk"
+    "videoUrl": "https://www.youtube.com/watch?v=atvor_JN6Bk",
+    "relativeIndex": 8
   },
   {
     "id": 10,
@@ -77,6 +86,7 @@
     "title": "Ice Cream ",
     "description": "Video Yole Ice Cream",
     "image": "/gallery/image_1768000861131.png",
-    "videoUrl": "https://www.youtube.com/watch?v=SI5rycbjEYE"
+    "videoUrl": "https://www.youtube.com/watch?v=SI5rycbjEYE",
+    "relativeIndex": 9
   }
 ]

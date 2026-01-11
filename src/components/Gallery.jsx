@@ -17,7 +17,9 @@ const Gallery = () => {
     setGalleryItems(galleryDataJson);
   }, []);
 
-  const filteredItems = galleryItems.filter(item => item.type === filter);
+  const filteredItems = galleryItems
+    .filter(item => item.type === filter)
+    .sort((a, b) => (a.relativeIndex || 0) - (b.relativeIndex || 0));
 
   // Calcola paginazione
   const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
