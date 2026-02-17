@@ -12,9 +12,7 @@ const ResetPassword = () => {
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
-  // Domanda di sicurezza - Grace può personalizzarla
   const SECURITY_QUESTION = "Qual è il nome della tua prima opera?";
-  // Risposta cifrata (hash di "covid19" in minuscolo)
   const SECURITY_ANSWER_HASH = "eebe24ec0eee3e52e88c03ea9da5a318f39e5ad5446b499259554c77c3fdf1cc";
 
   const handleSecurityCheck = async (e) => {
@@ -154,7 +152,6 @@ const ResetPassword = () => {
         </button>
 
         <div className="security-note">
-          <p><strong>Nota Sicurezza:</strong> La password è crittografata usando SHA-256. La risposta di sicurezza predefinita è "Covid19" (modificabile in ResetPassword.jsx).</p>
           <p style={{ marginTop: '0.5rem' }}><strong>Importante:</strong> Dopo il reset, i token GitHub salvati verranno eliminati. Dovrai riconfigurare l'accesso a GitHub per garantire che solo Grace possa modificare il sito.</p>
         </div>
       </div>
