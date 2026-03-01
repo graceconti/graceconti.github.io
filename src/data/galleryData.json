@@ -119,5 +119,15 @@
     "videoUrl": "https://youtu.be/kqAJ93TjVNg",
     "link": "https://youtu.be/kqAJ93TjVNg",
     "relativeIndex": 1
+  },
+  {
+    "id": 16,
+    "type": "photo",
+    "title": "Envy",
+    "description": "Photography Project \nThe seven deadly sins",
+    "image": "/gallery/image_1772388936650.webp",
+    "videoUrl": "",
+    "link": "",
+    "relativeIndex": 3
   }
 ]
