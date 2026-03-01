@@ -119,5 +119,15 @@
     "videoUrl": "",
     "link": "",
     "relativeIndex": 0
+  },
+  {
+    "id": 17,
+    "type": "photo",
+    "title": "Greed",
+    "description": "Photography Project \nThe seven deadly sins",
+    "image": "/gallery/image_1772390534378.webp",
+    "videoUrl": "",
+    "link": "",
+    "relativeIndex": 3
   }
 ]
