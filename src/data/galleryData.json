@@ -119,5 +119,15 @@
     "videoUrl": "",
     "link": "",
     "relativeIndex": 1
+  },
+  {
+    "id": 18,
+    "type": "photo",
+    "title": "Slot",
+    "description": "Photography Project \nThe seven deadly sins",
+    "image": "/gallery/image_1772392343987.jpg",
+    "videoUrl": "",
+    "link": "",
+    "relativeIndex": 2
   }
 ]
