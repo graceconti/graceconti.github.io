@@ -6,7 +6,7 @@
     "description": "A behind-the-scenes piece capturing on-set moments and cast and crew interviews.\nEdited in Adobe Premiere Pro.",
     "image": "/gallery/image_1772376880449.png",
     "videoUrl": "https://www.youtube.com/watch?v=mkM2wKTL3cY",
-    "relativeIndex": 0
+    "relativeIndex": 2
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "description": "A re-cut of the iconic scene set to a new soundtrack, exploring mood, rhythm and visual flow.",
     "image": "/gallery/image_1772374319570.png",
     "videoUrl": "https://www.youtube.com/watch?v=wSN7Uv9aF8c",
-    "relativeIndex": 3
+    "relativeIndex": 4
   },
   {
     "id": 3,
@@ -33,7 +33,7 @@
     "description": "A creative re-edit transforming long-form content into a music-driven visual narrative, reshaping pacing and storytelling through rhythm and imagery.\nEdited in Adobe Premiere Pro.",
     "image": "/gallery/image_1772374348917.png",
     "videoUrl": "https://www.youtube.com/watch?v=yqT_kM-Z_hc",
-    "relativeIndex": 5
+    "relativeIndex": 6
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "description": "A short documentary exploring isolation and resilience during the Covid-19 pandemic through remote interviews and personal testimonies.\nDirected and edited by Grace Conti.",
     "image": "/gallery/image_1772375603277.png",
     "videoUrl": "https://www.youtube.com/watch?v=r8XsFrPJfeM",
-    "relativeIndex": 4
+    "relativeIndex": 5
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "description": "A 10-second intro edit designed to capture attention and introduce the content quickly.\nEdited in Adobe Premiere Pro.",
     "image": "/gallery/image_1772374016336.png",
     "videoUrl": "https://www.youtube.com/watch?v=JkkwRTH8NdI",
-    "relativeIndex": 6
+    "relativeIndex": 7
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "description": "A trailer created from raw film footage. Edited in Adobe Premiere Pro.",
     "image": "/gallery/image_1772374258722.png",
     "videoUrl": "https://www.youtube.com/watch?v=YghKDgUOwr8",
-    "relativeIndex": 8
+    "relativeIndex": 9
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "description": "An intimate interview piece exploring the art of puppetry and family heritage, shaped through music-driven editing.\nEdited in Adobe Premiere Pro.",
     "image": "/gallery/image_1772374113031.png",
     "videoUrl": "https://www.youtube.com/watch?v=w3vc2csJHo4",
-    "relativeIndex": 7
+    "relativeIndex": 8
   },
   {
     "id": 9,
@@ -88,7 +88,7 @@
     "description": "A commissioned editing project combining K-pop visuals with brand and product footage.\nEdited in Adobe Premiere Pro.",
     "image": "/gallery/image_1772377636918.png",
     "videoUrl": "https://www.youtube.com/watch?v=SI5rycbjEYE",
-    "relativeIndex": 2
+    "relativeIndex": 3
   },
   {
     "id": 15,
@@ -138,6 +138,6 @@
     "image": "/gallery/image_1772533906589.png",
     "videoUrl": "https://youtu.be/0OOMW2_dE44",
     "link": "https://youtu.be/0OOMW2_dE44",
-    "relativeIndex": 9
+    "relativeIndex": 0
   }
 ]
