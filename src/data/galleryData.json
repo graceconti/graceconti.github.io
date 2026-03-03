@@ -129,5 +129,15 @@
     "videoUrl": "",
     "link": "",
     "relativeIndex": 2
+  },
+  {
+    "id": 19,
+    "type": "video",
+    "title": "Behind the Scenes edit - The Hermit",
+    "description": "Footage selection and pacing refinement focused on rhythm, mood and on-set atmosphere.",
+    "image": "/gallery/image_1772533906589.png",
+    "videoUrl": "https://youtu.be/0OOMW2_dE44",
+    "link": "https://youtu.be/0OOMW2_dE44",
+    "relativeIndex": 9
   }
 ]
