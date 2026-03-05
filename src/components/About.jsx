@@ -21,13 +21,13 @@ const About = () => {
           <div className={`about-text scroll-animate-right ${isVisible ? 'visible' : ''}`}>
             <h3>Creative Vision Meets Technical Excellence</h3>
             <p>
-              Hi there! I'm Grace Conti, a London-based showrunner and video editor with a passion for storytelling and visual artistry. With over 4 years of experience, I have contributed to the production and post-production of a diverse range of independent films, documentaries, music videos, and behind-the-scenes film content.
+              Hi, I’m Grace Conti, a London-based showrunner and video editor specialising in narrative-driven and digital content. With over five years of experience in production and post-production, I have worked across independent films, documentaries, music videos and digital series.
             </p>
             <p>
-              My journey has allowed me to work closely with filmmakers, artists, and production teams, bringing creative visions to life while aiming for high-quality standards. My work is characterized by meticulous attention to detail, a creative and problem-solving mindset, and strong communication and collaboration skills.
+              As Editor & Showrunner for a high-engagement YouTube format, I oversaw multi-episode content development, post-production workflow and delivery under tight deadlines, contributing to a series that reached multi-million views across platforms.
             </p>
             <p>
-              Outside of work, I'm inspired by music, art, design and fashion — everything that feeds imagination and creative vision.
+              My work focuses on structure, pacing and emotional clarity — shaping raw material into cohesive, audience-focused storytelling. I collaborate closely with directors, creatives and production teams to ensure each project maintains both narrative intention and technical precision. Outside of work, I draw inspiration from music, art, design and fashion — influences that inform my visual sensitivity and editorial style.
             </p>
 
             <div className="software-tools">
