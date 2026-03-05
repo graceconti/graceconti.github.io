@@ -96,7 +96,7 @@ const Gallery = () => {
             className={`filter-btn ${filter === 'photo' ? 'active' : ''}`}
             onClick={() => handleFilterChange('photo')}
           >
-            Photo
+            Visual Studies
           </button>
           <button 
             className={`filter-btn ${filter === 'ai' ? 'active' : ''}`}
