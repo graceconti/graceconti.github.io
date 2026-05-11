@@ -90,7 +90,7 @@ const Gallery = () => {
             className={`filter-btn ${filter === 'video' ? 'active' : ''}`}
             onClick={() => handleFilterChange('video')}
           >
-            Video
+            Selected Work
           </button>
           <button 
             className={`filter-btn ${filter === 'photo' ? 'active' : ''}`}
