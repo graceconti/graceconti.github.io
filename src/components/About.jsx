@@ -19,7 +19,7 @@ const About = () => {
           </div>
           
           <div className={`about-text scroll-animate-right ${isVisible ? 'visible' : ''}`}>
-            <h3>Creative Vision Meets Technical Excellence</h3>
+            <h3>Crafting Stories Through Editing & Visual Rhythm</h3>
             <p>
               Hi, I’m Grace Conti, a London-based showrunner and video editor specialising in narrative-driven and digital content. With over five years of experience in production and post-production, I have worked across independent films, documentaries, music videos and digital series.
             </p>
