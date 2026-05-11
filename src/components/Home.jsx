@@ -7,7 +7,7 @@ const Home = () => {
       <div className="home-content">
         <div className="home-text">
           <h1 className="home-title">Grace Conti</h1>
-          <p className="home-subtitle">Creative Artist & Visual Storyteller</p>
+          <p className="home-subtitle">Narrative Video Editor & Visual Storyteller</p>
           <p className="home-description">
             Shaping engaging visual narratives through editing and storytelling.
             Bringing ideas to life through rhythm, emotion and visual sensibility.
