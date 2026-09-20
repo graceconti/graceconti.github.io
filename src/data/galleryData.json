@@ -149,5 +149,15 @@
     "videoUrl": "https://youtu.be/JBKauPOTMx8",
     "link": "https://youtu.be/JBKauPOTMx8",
     "relativeIndex": 4
+  },
+  {
+    "id": 21,
+    "type": "photo",
+    "title": "Portrait Study I",
+    "description": "Natural-light portrait exploring expression, softness and shallow depth of field.",
+    "image": "/gallery/image_1789917166422.webp",
+    "videoUrl": "",
+    "link": "",
+    "relativeIndex": 3
   }
 ]
