@@ -199,5 +199,15 @@
     "videoUrl": "",
     "link": "",
     "relativeIndex": 7
+  },
+  {
+    "id": 26,
+    "type": "photo",
+    "title": "Portrait Study VI",
+    "description": "High-contrast portrait using strong side light and shadow to shape facial structure and mood.",
+    "image": "/gallery/image_1789917487504.webp",
+    "videoUrl": "",
+    "link": "",
+    "relativeIndex": 8
   }
 ]
