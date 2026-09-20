@@ -179,5 +179,15 @@
     "videoUrl": "",
     "link": "",
     "relativeIndex": 5
+  },
+  {
+    "id": 24,
+    "type": "photo",
+    "title": "Portrait Study IV",
+    "description": "Direct portrait exploring gaze, texture and a more intimate, grounded mood.",
+    "image": "/gallery/image_1789917383651.webp",
+    "videoUrl": "",
+    "link": "",
+    "relativeIndex": 6
   }
 ]
