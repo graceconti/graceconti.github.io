@@ -169,5 +169,15 @@
     "videoUrl": "",
     "link": "",
     "relativeIndex": 4
+  },
+  {
+    "id": 23,
+    "type": "photo",
+    "title": "Portrait Study III",
+    "description": "Close-up profile portrait exploring stillness, soft expression and cool natural tones.",
+    "image": "/gallery/image_1789917346923.webp",
+    "videoUrl": "",
+    "link": "",
+    "relativeIndex": 5
   }
 ]
