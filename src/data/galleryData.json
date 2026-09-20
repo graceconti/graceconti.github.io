@@ -159,5 +159,15 @@
     "videoUrl": "",
     "link": "",
     "relativeIndex": 3
+  },
+  {
+    "id": 22,
+    "type": "photo",
+    "title": "Portrait Study II",
+    "description": "Natural-light portrait capturing spontaneity, warmth and relaxed expression.",
+    "image": "/gallery/image_1789917307504.webp",
+    "videoUrl": "",
+    "link": "",
+    "relativeIndex": 4
   }
 ]
