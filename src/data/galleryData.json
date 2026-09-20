@@ -189,5 +189,15 @@
     "videoUrl": "",
     "link": "",
     "relativeIndex": 6
+  },
+  {
+    "id": 25,
+    "type": "photo",
+    "title": "Portrait Study V",
+    "description": "Low-key portrait using shadow and warm directional light to create a contemplative mood.",
+    "image": "/gallery/image_1789917438953.webp",
+    "videoUrl": "",
+    "link": "",
+    "relativeIndex": 7
   }
 ]
