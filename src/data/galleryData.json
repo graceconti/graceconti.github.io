@@ -209,5 +209,15 @@
     "videoUrl": "",
     "link": "",
     "relativeIndex": 8
+  },
+  {
+    "id": 27,
+    "type": "photo",
+    "title": "Portrait Study",
+    "description": "Natural-light portrait exploring expression, texture and eye contact through a close study of form and detail.",
+    "image": "/gallery/image_1789998911915.webp",
+    "videoUrl": "",
+    "link": "",
+    "relativeIndex": 9
   }
 ]
