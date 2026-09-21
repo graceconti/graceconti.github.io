@@ -219,5 +219,15 @@
     "videoUrl": "",
     "link": "",
     "relativeIndex": 9
+  },
+  {
+    "id": 28,
+    "type": "photo",
+    "title": "Quiet Devotion",
+    "description": "A warm interior study exploring light, stillness and intimate atmosphere through everyday objects and symbolic details.",
+    "image": "/gallery/image_1790004251549.webp",
+    "videoUrl": "",
+    "link": "",
+    "relativeIndex": 10
   }
 ]
