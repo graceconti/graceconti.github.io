@@ -105,7 +105,7 @@
     "type": "photo",
     "title": "Envy",
     "description": "ENVY – Concept Study from the “Seven Deadly Sins” Series\nInspired by the archetype of the envious witch, this in-studio portrait explores desire through symbolic framing and color contrast.",
-    "image": "/gallery/image_1790006198539.webp",
+    "image": "/gallery/image_1790006825880.webp",
     "videoUrl": "",
     "link": "",
     "relativeIndex": 0
@@ -219,5 +219,15 @@
     "videoUrl": "",
     "link": "",
     "relativeIndex": 9
+  },
+  {
+    "id": 28,
+    "type": "photo",
+    "title": "Quiet Devotion",
+    "description": "A warm interior study exploring light, stillness and intimate atmosphere through everyday objects and symbolic details.",
+    "image": "/gallery/image_1790004682317.webp",
+    "videoUrl": "",
+    "link": "",
+    "relativeIndex": 10
   }
 ]
