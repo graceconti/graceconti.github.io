@@ -229,5 +229,15 @@
     "videoUrl": "",
     "link": "",
     "relativeIndex": 10
+  },
+  {
+    "id": 29,
+    "type": "photo",
+    "title": "Lust",
+    "description": "A conceptual portrait from the “Seven Deadly Sins” series, inspired by Francesca and Paolo from Dante’s Inferno. The image explores desire, intimacy and forbidden passion through dramatic shadow, red drapery and close physical proximity.",
+    "image": "/gallery/image_1790297376171.webp",
+    "videoUrl": "",
+    "link": "",
+    "relativeIndex": 11
   }
 ]
